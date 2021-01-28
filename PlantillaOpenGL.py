@@ -3,230 +3,100 @@ from glew_wish import *
 import glfw
 from math import *
 
-def dibujarPerilla():
-    glColor3f(0.0,0.0,0.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.040 + 0.08, sin(angulo) * 0.040 - 0.5, 0.0)
-    glEnd()
-
-def dibujarVentana(): 
-    glBegin(GL_QUADS)
-    glColor3f(0.513,0.0,0.0)
-    glVertex3f(0.15,-0.22,0.0)
-    glVertex3f(0.42,-0.22,0.0)
-    glVertex3f(0.42,0.02,0.0)
-    glVertex3f(0.15,0.02,0.0)
-
-    #abajo
-
-    glColor3f(0.188,0.850,1.0)
-    glVertex3f(0.16,-0.21,0.0)
-    glVertex3f(0.27,-0.21,0.0)
-    glVertex3f(0.27,-0.11,0.0)
-    glVertex3f(0.16,-0.11,0.0)
-
-    glColor3f(0.188,0.850,1.0)
-    glVertex3f(0.30,-0.21,0.0)
-    glVertex3f(0.41,-0.21,0.0)
-    glVertex3f(0.41,-0.11,0.0)
-    glVertex3f(0.30,-0.11,0.0)
-
-    #arriba
-
-    glColor3f(0.188,0.850,1.0)
-    glVertex3f(0.16,-0.08,0.0)
-    glVertex3f(0.27,-0.08,0.0)
-    glVertex3f(0.27, 0.01,0.0)
-    glVertex3f(0.16, 0.01,0.0)
-
-    glColor3f(0.188,0.850,1.0)
-    glVertex3f(0.30,-0.08,0.0)
-    glVertex3f(0.41,-0.08,0.0)
-    glVertex3f(0.41, 0.01,0.0)
-    glVertex3f(0.30, 0.01,0.0)
-
-    glEnd()
-
-def dibujarPuerta(): 
-    glBegin(GL_QUADS)
-    glColor3f(0.396,0.262,0.015)
-    glVertex3f(-0.15,-0.7,0.0)
-    glVertex3f(0.15,-0.7,0.0)
-    glVertex3f(0.15,-0.3,0.0)
-    glVertex3f(-0.15,-0.3,0.0)
-    glEnd()
-
-def dibujarPared(): #Pared
-    glBegin(GL_QUADS)
-    glColor3f(0.839,0.576,0.149)
-    glVertex3f(-0.5,-0.7,0.0)
-    glVertex3f(0.5,-0.7,0.0)
-    glVertex3f(0.5,0.1,0.0)
-    glVertex3f(-0.5,0.1,0.0)
-    glEnd()
-
-def dibujarTecho():
+def dibujarTriagulos():
     #rutinas de dibujo
     glBegin(GL_TRIANGLES)
-    glColor3f(0.513,0.0,0.0)
-    glVertex3f(-0.6,0.1,0.0)
-    glVertex3f(0.0,0.6,0.0)
-    glVertex3f(0.6,0.1,0.0)
+    glColor3f(1.0,0.0,0.0)
+    glVertex3f(-0.5,0.0,0.0)
+    glColor3f(1.0,0.8,0.0)
+    glVertex3f(0.0,0.5,0.0)
+    glColor3f(1.0,0.0,1.0)
+    glVertex3f(0.5,0.0,0.0)
 
+    glColor3f(0.0,0.0,1.0)
+    glVertex3f(-0.4,-0.2,0.0)
+    glColor3f(0.0,1.0,0.0)
+    glVertex3f(-0.6,-0.4,0.0)
+    glColor3f(1.0,0.0,0.0)
+    glVertex3f(-0.2,-0.4,0.0)
     glEnd()
 
-def dibujarHojas():
-    glColor3f(0.027,0.698,0.)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.16 - 0.78, sin(angulo) * 0.18 - 0.27, 0.0)
+def dibujarPuntos():
+    glBegin(GL_POINTS)
+    glVertex3f(0.0,0.0,0.0)
+    glVertex3f(0.1,0.0,0.0)
     glEnd()
 
-def dibujarHojas2():
-    glColor3f(0.027,0.698,0.)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.20 - 0.72, sin(angulo) * 0.18 - 0.15, 0.0)
+def dibujarLineas():
+    glBegin(GL_LINES)
+    glVertex3f(-0.8,0.5,0.0)
+    glVertex3f(-0.8,0.3,0.0)
+
+    glVertex3f(-0.6,0.5,0.0)
+    glVertex3f(-0.5,0.3,0.0)
     glEnd()
 
-def dibujarHojas3():
-    glColor3f(0.027,0.698,0.)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.16 - 0.78, sin(angulo) * 0.18 - 0.05, 0.0)
+def dibujarLineaContinua():
+    glBegin(GL_LINE_STRIP)
+    glVertex3f(-0.8,0.5,0.0)
+    glVertex3f(-0.8,0.3,0.0)
+
+    glVertex3f(-0.6,0.5,0.0)
+    glVertex3f(-0.5,0.3,0.0)
+
+    glVertex3f(-0.3,0.5,0.0)
     glEnd()
 
-def dibujarTronco(): 
+def dibujarCicloLinea():
+    glBegin(GL_LINE_LOOP)
+    glVertex3f(-0.8,0.5,0.0)
+    glVertex3f(-0.8,0.3,0.0)
+
+    glVertex3f(-0.6,0.5,0.0)
+    glVertex3f(-0.5,0.3,0.0)
+
+    glVertex3f(-0.3,0.5,0.0)
+    glEnd()
+
+def dibujarRectangulos():
     glBegin(GL_QUADS)
-    glColor3f(0.396,0.262,0.015)
-    glVertex3f(-0.78,-0.8,0.0)
-    glVertex3f(-0.68,-0.8,0.0)
-    glVertex3f(-0.68,-0.4,0.0)
-    glVertex3f(-0.78,-0.4,0.0)
+    glVertex3f(-0.2,0.2,0.0)
+    glVertex3f(0.4,0.2,0.0)
+    glVertex3f(0.4,-0.2,0.0)
+    glVertex3f(-0.2,-0.2,0.0)
     glEnd()
 
-def dibujarPasto(): #Pasto
-    glBegin(GL_QUADS)
-    glColor3f(0.027,0.698,0.0)
-    glVertex3f(-1.0,-0.5,0.0)
-    glVertex3f(1.0,-0.5,0.0)
-    glVertex3f(1.0,-1.0,0.0)
-    glVertex3f(-1.0,-1.0,0.0)
-    glEnd()
-
-def dibujarSol():
-    glColor3f(1.0,0.956,0.129)
+def dibujarPoligono():
     glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.18 - 0.65, sin(angulo) * 0.18 + 0.65, 0.0)
+    #glVertex3f(-0.8,0.5,0.0)
+    #glVertex3f(-0.8,0.3,0.0)
+    #glVertex3f(-0.6,0.5,0.0)
+    #glVertex3f(-0.5,0.3,0.0)
+    #glVertex3f(-0.3,0.5,0.0)
+
+    glVertex3f(0.0,0.0,0.0)
+    glVertex3f(0.0,0.2,0.0)
+    glVertex3f(0.2,0.2,0.0)
+    glVertex3f(0.2,0.0,0.0)
+    glVertex3f(0.1,-0.1,0.0)
     glEnd()
 
-def dibujarNube():
-    glColor3f(1.0,1.0,1.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.14 + 0.68, sin(angulo) * 0.1 + 0.52, 0.0)
-    glEnd()
-
-def dibujarNube2():
-    glColor3f(1.0,1.0,1.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.16 + 0.6, sin(angulo) * 0.1 + 0.48, 0.0)
-    glEnd()
-
-def dibujarNube3():
-    glColor3f(1.0,1.0,1.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.18 + 0.47, sin(angulo) * 0.1 + 0.88, 0.0)
-    glEnd()
-
-def dibujarNube4():
-    glColor3f(1.0,1.0,1.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.18 + 0.42, sin(angulo) * 0.1 + 0.85, 0.0)
-    glEnd()
-
-def dibujarNube5():
-    glColor3f(1.0,1.0,1.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.18 -0.05, sin(angulo) * 0.1 + 0.76, 0.0)
-    glEnd()
-
-def dibujarNube6():
-    glColor3f(1.0,1.0,1.0)
-    glBegin(GL_POLYGON)
-    for x in range(360):
-        angulo = x * 3.14159 / 180.0
-        glVertex3f(cos(angulo) * 0.18 - 0.12, sin(angulo) * 0.1 + 0.72, 0.0)
-    glEnd()
-
-def dibujarRaya(): 
-    glBegin(GL_QUADS)
-    glColor3f(1.0,0.956,0.129)
-
-    glVertex3f(-0.68,0.42,0.0)
-    glVertex3f(-0.62,0.42,0.0)
-    glVertex3f(-0.62,0.32,0.0)
-    glVertex3f(-0.68,0.32,0.0)
-
-    glVertex3f(-0.42,0.68,0.0)
-    glVertex3f(-0.32,0.68,0.0)
-    glVertex3f(-0.32,0.62,0.0)
-    glVertex3f(-0.42,0.62,0.0)
-
-    glVertex3f(-0.68,0.98,0.0)
-    glVertex3f(-0.62,0.98,0.0)
-    glVertex3f(-0.62,0.88,0.0)
-    glVertex3f(-0.68,0.88,0.0)
-
-    glVertex3f(-0.98,0.68,0.0)
-    glVertex3f(-0.88,0.68,0.0)
-    glVertex3f(-0.88,0.62,0.0)
-    glVertex3f(-0.98,0.62,0.0)
-
-    glEnd()
 
 def dibujar():
     glColor3f(1.0,0.0,0.0)
-    dibujarRaya()
-    dibujarPasto()
-    dibujarPared()
-    dibujarSol()
-    dibujarTecho()
-    dibujarPuerta()
-    dibujarPerilla()
-    dibujarVentana()
-    dibujarTronco()
-    dibujarHojas()
-    dibujarHojas2()
-    dibujarHojas3()
-    dibujarNube()
-    dibujarNube2()
-    dibujarNube3()
-    dibujarNube4()
-    dibujarNube5()
-    dibujarNube6()
+    #dibujarTriangulos()
+    #dibujarPuntos()
+    #dibujarLineas()
+    #dibujarLineaContinua()
+    #dibujarCicloLinea()
+    #dibujarRectangulos()
+    dibujarPoligono()
     
 
 def main():
     #inicia glfw
-    ancho = 800
-    alto = 800
+    ancho = 600
+    alto = 600
     if not glfw.init():
         return
     
